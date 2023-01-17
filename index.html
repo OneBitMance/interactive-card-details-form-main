@@ -1,51 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Interactive card details form</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="styles.css">
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+    <title>Frontend Mentor | Interactive card details form</title>
 
-  0000 0000 0000 0000
-  Jane Appleseed
-  00/00
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
 
-  000
+  <body>
+    <div class="section-wrapper">
+      <section class="cards-wrapper">
+        <div class="card__wrap--inner">
+        <div class="card-1">
+          <!--Top Section-->
+          <div class="card-1__top">
+            <div class="big__circle--filled"></div>
+            <div class="small__circle--empty"></div>
+          </div>
+          <!--Mid Section-->
+          <div class="card-1__mid">
+            <div class="card__1-digits">0000</div>
+            <div class="card__1-digits">0000</div>
+            <div class="card__1-digits">0000</div>
+            <div class="card__1-digits">0000</div>
+          </div>
+          <!--Bottom Section-->
+          <div class="card-1__bottom">
+            <div class="card__1-name">Jane Appleseed</div>
+            <div class="card__1-expdate exp-date">00/00</div>
+          </div>
+        </div>
 
-  Cardholder Name
-  e.g. Jane Appleseed
+        <div class="card-2">
+          <div class="exp-date">000</div>
+        </div>
+      </div>
+      </section>
 
-  Card Number
-  e.g. 1234 5678 9123 0000
+      <section class="form-wrapper">
+        <form action="" novalidate>
+          <div class="form-card__holder"></div>
+          <div class="form-card__number"></div>
+          <div class="form-date__cvc">
+            <div class="card__month-year"></div>
+            <div class="card__cvc"></div>
+          </div>
 
-  Exp. Date (MM/YY)
-  MM
-  YY
+          <button class="submit-btn" type="submit">Confirm</button>
+        </form>
 
-  CVC
-  e.g. 123
+        <!-- Completed state start -->
 
-  Confirm
-
-  <!-- Completed state start -->
-
-  Thank you!
-  We've added your card details
-  Continue
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+        Thank you! We've added your card details Continue
+      </section>
+    </div>
+<!-- 
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>. -->
+    </div>
+  </body>
 </html>

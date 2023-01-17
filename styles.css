@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap");
+
+:root {
+  /* Primary */
+  --linear-gradient: hsl(249, 99%, 64%) to hsl(278, 94%, 30%); /* (active input border) */
+  --red: hsl(0, 100%, 66%);
+
+  /* Neutral */
+  --white: hsl(0, 0%, 100%);
+  --light-grayish-violet: hsl(270, 3%, 87%);
+  --dark-grayish-violet: hsl(279, 6%, 55%);
+  --very-dark-violet: hsl(278, 68%, 11%);
+
+  /* Body Copy */
+  --font-size: 18px;
+
+  /* Font */
+  --weights: 500;
+}
+
+body {
+  font-family: "Space Grotesk";
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.section-wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.section-wrapper > section {
+  flex: 1 1;
+}
+
+.cards-wrapper {
+  background-image: url(images/bg-main-desktop.png);
+  background-repeat: no-repeat;
+  background-size: 60% 100%;
+}
+
+.card__wrap--inner {
+  width: 500px;
+  height: 500px;
+  position: relative;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.card-1 {
+  width: 90%;
+  aspect-ratio: 2 / 1;
+  background: url(images/bg-card-front.png) no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.card-1 > * {
+  flex: 1 1;
+}
+
+.card-2 {
+  width: 90%;
+  aspect-ratio: 2 / 1;
+  background: url(images/bg-card-back.png) no-repeat;
+  background-size: contain;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 500;
+}
+
+.form-wrapper {
+  background: white;
+}
