@@ -31,47 +31,80 @@
     <div class="section-wrapper">
       <section class="cards-wrapper">
         <div class="card__wrap--inner">
-        <div class="card-1">
-          <!--Top Section-->
-          <div class="card-1__top">
-            <div class="big__circle--filled"></div>
-            <div class="small__circle--empty"></div>
+          <div class="card-1">
+            <!--Top Section-->
+            <div class="card-1__top">
+              <div class="big__circle--filled"></div>
+              <div class="small__circle--empty"></div>
+            </div>
+            <!--Mid Section-->
+            <div class="card-1__mid">
+              <div class="card__1-digits">0000</div>
+              <div class="card__1-digits">0000</div>
+              <div class="card__1-digits">0000</div>
+              <div class="card__1-digits">0000</div>
+            </div>
+            <!--Bottom Section-->
+            <div class="card-1__bottom">
+              <div class="card__1-name">JANE APPLESEED</div>
+              <div class="card__1-expdate exp-date">00/00</div>
+            </div>
           </div>
-          <!--Mid Section-->
-          <div class="card-1__mid">
-            <div class="card__1-digits">0000</div>
-            <div class="card__1-digits">0000</div>
-            <div class="card__1-digits">0000</div>
-            <div class="card__1-digits">0000</div>
-          </div>
-          <!--Bottom Section-->
-          <div class="card-1__bottom">
-            <div class="card__1-name">Jane Appleseed</div>
-            <div class="card__1-expdate exp-date">00/00</div>
-          </div>
-        </div>
 
-        <div class="card-2">
-          <div class="exp-date">000</div>
-        </div>
+          <div class="card-2">
+            <div class="cvc__number--back">000</div>
+            <img src="images/bg-card-back.png" alt="">
+          </div>
       </div>
       </section>
 
       <section class="form-wrapper">
-        <form action="" novalidate>
-          <div class="form-card__holder"></div>
-          <div class="form-card__number"></div>
-          <div class="form-date__cvc">
-            <div class="card__month-year"></div>
-            <div class="card__cvc"></div>
+        <form action="" novalidate >
+          <!--Card Holder-->
+          <div class="form-card__holder">
+            <label for="name" class="input-label">Cardholder Name</label>
+            <input type="text" name="name" id="name" class="form-input" placeholder="e.g. Jane Appleseed">
+            <div class="error-msg errmsg--1"></div>
           </div>
-
-          <button class="submit-btn" type="submit">Confirm</button>
+          <!--Card Number-->
+          <div class="form-card__number">
+            <label for="card-number" class="input-label">Card Number</label>
+            <input type="text" name="card-number" id="card-number" class="form-input" minlength="16" maxlength="16" placeholder="e.g. 1234 5678 9123 0000">
+            <div class="error-msg errmsg--2"></div>
+          </div>
+          <!--Date + CVC-->
+          <div class="form-date__cvc">
+            <div class="card__month-year">
+              <div class="date__label--container">
+                <label for="month" class="input-label">Exp. Date (MM/YY)</label>
+              </div>
+              <div class="date__input--container">
+                <input type="text" name="month" id="month" class="form-input" minlength="2" maxlength="2" placeholder="MM">
+                <input type="text" name="year" id="year" class="form-input" minlength="2" maxlength="2" placeholder="YY">
+              </div>
+              <div class="error-msg errmsg--3"></div>
+            </div>
+            <div class="card__cvc">
+              <label for="cvc-number" class="input-label">CVC</label>
+              <input type="text" name="cvc-number" id="cvc-number" class="form-input" minlength="3" maxlength="3" 
+              placeholder="e.g. 123">
+              <div class="error-msg errmsg--4"></div>
+            </div>
+          </div>
+          <!--Submit Button-->
+          <button class="submit-btn" type="button">Confirm</button>
         </form>
 
         <!-- Completed state start -->
 
-        Thank you! We've added your card details Continue
+        <div class="thanks--proceed" style="display: none;">
+        <img src="/images/icon-complete.svg" alt="form input verification">
+        <div class="complete-info">
+          <h1 class="thanks__heading">Thank you!</h1>
+          <p class="thanks__info">We've added your card details</p>
+        </div>
+        <button class="continue-btn" type="submit">Continue</button>
+        </div>
       </section>
     </div>
 <!-- 
@@ -81,5 +114,6 @@
         >Frontend Mentor</a
       >. Coded by <a href="#">Your Name Here</a>. -->
     </div>
+    <script src="/script.js"></script>
   </body>
 </html>

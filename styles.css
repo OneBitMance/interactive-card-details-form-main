@@ -2,7 +2,11 @@
 
 :root {
   /* Primary */
-  --linear-gradient: hsl(249, 99%, 64%) to hsl(278, 94%, 30%); /* (active input border) */
+  --linear-gradient: hsl(
+    249,
+    99%,
+    64%
+  ); /* hsl(278, 94%, 30%);  (active input border) */
   --red: hsl(0, 100%, 66%);
 
   /* Neutral */
@@ -18,8 +22,13 @@
   --weights: 500;
 }
 
+html {
+  font-size: 1.125rem;
+}
+
 body {
   font-family: "Space Grotesk";
+  font-size: 1rem;
 }
 
 * {
@@ -35,54 +44,531 @@ body {
   flex-direction: row;
 }
 
-.section-wrapper > section {
-  flex: 1 1;
-}
+/* Card Styling */
 
 .cards-wrapper {
   background-image: url(images/bg-main-desktop.png);
   background-repeat: no-repeat;
   background-size: 60% 100%;
+  position: relative;
+  flex: 1.5 1;
 }
 
 .card__wrap--inner {
   width: 500px;
   height: 500px;
-  position: relative;
+  position: absolute;
   top: 50%;
-  left: 0;
+  right: 14%;
+  transform: translateX(50%);
   transform: translateY(-50%);
 }
 
 .card-1 {
-  width: 90%;
+  width: 23rem;
+  padding: 30px;
   aspect-ratio: 2 / 1;
   background: url(images/bg-card-front.png) no-repeat;
-  background-size: contain;
+  background-size: cover;
   position: absolute;
   top: 0;
-  left: 0;
+  left: 1%;
   z-index: 1000;
+  border-radius: 10px;
 
   display: flex;
   flex-direction: column;
 }
 
-.card-1 > * {
+.big__circle--filled {
+  width: 47px;
+  height: 47px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.small__circle--empty {
+  width: 22px;
+  height: 22px;
+  border: 1px solid white;
+  border-radius: 50%;
+  align-self: center;
+}
+
+.card-1__top {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 60px;
+}
+
+.card-1__mid {
+  display: flex;
+  color: white;
+  gap: 12px;
+  font-size: 1.33rem;
+  font-weight: 500;
+  flex: 4 1;
+  align-items: flex-end;
+  margin-bottom: 20px;
+  letter-spacing: 3px;
+}
+
+.card-1__bottom {
+  color: white;
+  display: flex;
   flex: 1 1;
+  font-size: 0.6rem;
+  justify-content: space-between;
+}
+
+.card-1__bottom > * {
+  letter-spacing: 2px;
+  font-weight: 200;
+  align-self: flex-end;
 }
 
 .card-2 {
-  width: 90%;
+  width: 23rem;
   aspect-ratio: 2 / 1;
-  background: url(images/bg-card-back.png) no-repeat;
-  background-size: contain;
   position: absolute;
-  right: 0;
-  bottom: 0;
+  background-image: url(images/bg-card-back.png);
+  background-repeat: no-repeat;
+  background-size: 110%;
+  border-radius: 10px;
+  right: 0px;
+  bottom: 0px;
   z-index: 500;
 }
 
+.card-2 .cvc__number--back {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-70%);
+  right: 10%;
+  color: white;
+}
+
+.card-2 > img {
+  width: 100%;
+}
+
+.card-1,
+.card-2 {
+  box-shadow: -5px 12px 70px -35px black;
+}
+
+/* Form Styling */
+
 .form-wrapper {
   background: white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  flex: 1 1;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 17.88rem;
+  height: 12.72rem;
+  padding: 0px;
+  margin-bottom: 40px;
+}
+
+.form-card__holder,
+.form-card__number {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-date__cvc {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.card__month-year {
+  display: flex;
+  flex-direction: column;
+}
+
+.card__cvc {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-card__holder,
+.form-card__number,
+.card__month-year,
+.card__cvc {
+  gap: 8px;
+}
+
+.error-msg {
+  word-wrap: break-word;
+  font-size: 0.7rem;
+  color: red;
+  display: none;
+}
+
+.error-displayed {
+  display: block;
+}
+
+/* There must be a better way to do this than hard-code width like this: */
+.errmsg--3 {
+  width: 7.157rem;
+  word-wrap: break-word;
+}
+
+.errmsg--4 {
+  width: 9.88rem;
+}
+
+.date__input--container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.date__input--container > * {
+  width: 45%;
+}
+
+.form-input {
+  font-family: "Space Grotesk";
+  font-size: 0.7rem;
+  padding: 0.5rem;
+  border: 1px solid var(--light-grayish-violet);
+  border-radius: 7px;
+}
+
+::placeholder {
+  color: var(--dark-grayish-violet);
+  opacity: 0.6;
+}
+
+.form-input:focus-visible {
+  outline: none;
+  border: 1px solid hsl(249, 99%, 64%);
+  border-image-slice: 1;
+}
+
+.input-label {
+  color: var(--very-dark-violet);
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.submit-btn {
+  font-family: "Space Grotesk";
+  background: var(--very-dark-violet);
+  color: white;
+  border: none;
+  border-radius: 7px;
+  padding: 13px;
+  font-size: 0.77rem;
+  cursor: pointer;
+}
+
+.date__label--container {
+  display: flex;
+}
+
+/* Complete-State Styling */
+
+.thanks--proceed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  width: 320px;
+}
+
+.complete-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.thanks__heading {
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 2px;
+  font-size: 1.6rem;
+  color: var(--very-dark-violet);
+}
+
+.thanks__info {
+  font-size: 0.8rem;
+  color: var(--dark-grayish-violet);
+}
+
+.continue-btn {
+  padding: 13px;
+  background: var(--very-dark-violet);
+  font-family: "Space Grotesk";
+  font-weight: 500;
+  color: white;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+/* Media Queries */
+
+@media screen and (min-width: 787px) and (max-width: 960px) {
+  .card-1 {
+    width: 18rem;
+    padding: 25px;
+    top: 10%;
+    left: 20%;
+  }
+
+  .big__circle--filled {
+    width: 40px;
+    height: 40px;
+  }
+
+  .small__circle--empty {
+    width: 15px;
+    height: 15px;
+  }
+
+  .card-1__top {
+    margin-bottom: 40px;
+  }
+
+  .card-1__mid {
+    font-size: 1rem;
+    gap: 6px;
+  }
+
+  .card-1__bottom {
+    font-size: 0.55rem;
+  }
+
+  .card-2 {
+    width: 18rem;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    bottom: 10%;
+  }
+}
+
+/* @media screen and (min-width: 501px) and (max-width: 787px) {
+  .section-wrapper {
+    flex-direction: column;
+  }
+
+  .cards-wrapper {
+    width: 100%;
+    background-size: 100% 70%;
+    flex: 0.8 1;
+    max-height: 293px;
+  }
+
+  /* .form-wrapper {
+    max-height: 366px;
+  } 
+
+
+
+  .card__wrap--inner {
+    width: 450px;
+    height: 293px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .form-wrapper,
+  .cards-wrapper {
+    align-self: center;
+  }
+
+  .card-1 {
+    width: 18rem;
+    padding: 25px;
+    top: unset;
+    bottom: 0;
+    left: 0;
+  }
+
+  .big__circle--filled {
+    width: 40px;
+    height: 40px;
+  }
+
+  .small__circle--empty {
+    width: 15px;
+    height: 15px;
+  }
+
+  .card-1__top {
+    margin-bottom: 40px;
+  }
+
+  .card-1__mid {
+    font-size: 1rem;
+    gap: 6px;
+  }
+
+  .card-1__bottom {
+    font-size: 0.55rem;
+  }
+
+  .card-2 {
+    width: 18rem;
+    bottom: unset;
+    top: 6px;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+  }
+
+  form {
+    flex: 1 1;
+    width: 80%;
+  }
+
+  .input-label {
+    font-size: 0.7rem;
+  }
+} 
+
+*/
+
+@media screen and (min-width: 0px) and (max-width: 787px) {
+  .section-wrapper {
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 40px;
+  }
+
+  .cards-wrapper {
+    background-size: 100% 83%;
+    flex: 0.8 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .card__wrap--inner {
+    width: 362px;
+    height: 297px;
+    top: unset;
+    right: unset;
+    bottom: 0;
+    transform: none;
+  }
+
+  .card-1,
+  .card-2 {
+    width: 17rem;
+    aspect-ratio: 2 / 1;
+    transform: scale(0.95);
+  }
+
+  .card-1 {
+    padding: 20px;
+    top: unset;
+    bottom: 1px;
+    left: 8px;
+  }
+
+  .big__circle--filled {
+    width: 34px;
+    height: 34px;
+  }
+
+  .small__circle--empty {
+    width: 16px;
+    height: 16px;
+  }
+
+  .card-1__top {
+    gap: 10px;
+    margin-bottom: 40px;
+  }
+
+  .card-1__mid {
+    font-size: 1.05rem;
+    gap: 6px;
+  }
+
+  .card-1__bottom {
+    font-size: 0.55rem;
+  }
+
+  .card-2 {
+    bottom: unset;
+    top: 32.5px;
+    right: 10px;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+  }
+
+  form {
+    margin-bottom: 60px;
+    width: 88%;
+    align-self: flex-start;
+    margin-top: 30px;
+  }
+
+  .form-wrapper {
+    justify-content: center;
+  }
+
+  .form-date__cvc {
+    margin-bottom: 8px;
+    gap: 4px;
+  }
+
+  .input-label {
+    font-size: 0.7rem;
+    letter-spacing: 1.8px;
+  }
+
+  .form-input {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  .card__cvc {
+    width: 9rem;
+  }
+
+  .date__input--container {
+    gap: 8px;
+  }
+
+  .submit-btn {
+    font-size: 1rem;
+  }
+
+  .complete-info {
+    gap: 15px;
+  }
+
+  .thanks__heading {
+    font-size: 1.4rem;
+  }
+
+  .thanks__info {
+    font-size: 0.85rem;
+  }
+
+  .continue-btn {
+    border-radius: 8px;
+    padding: 15px;
+    width: 90%;
+    font-size: 0.9rem;
+    margin-top: 15px;
+  }
 }
