@@ -8,12 +8,19 @@ const formInputs = document.querySelectorAll(".form-input");
 const formErrors = document.querySelectorAll(".error-msg");
 
 document.querySelector(".submit-btn").addEventListener("click", function () {
-  cardName.textContent = formInputs[0].value.toUpperCase();
+  formInputs[0].value ? cardName.textContent = formInputs[0].value : [];
+
+  if(formInputs[1].value) {
   cardDigits[0].textContent = formInputs[1].value.slice(0, 4);
   cardDigits[1].textContent = formInputs[1].value.slice(4, 8);
   cardDigits[2].textContent = formInputs[1].value.slice(8, 12);
   cardDigits[3].textContent = formInputs[1].value.slice(12, 16);
-  cardExpDate.textContent = `${formInputs[2].value}/${formInputs[3].value}`;
+  }
+
+  if(formInputs[2].value && formInputs[3].value)
+  {
+    cardExpDate.textContent = `${formInputs[2].value}/${formInputs[3].value}`
+  }
   cardCvc.textContent = formInputs[4].value;
   let verifyCount = 0;
 
