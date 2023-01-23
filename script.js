@@ -21,7 +21,7 @@ document.querySelector(".submit-btn").addEventListener("click", function () {
   {
     cardExpDate.textContent = `${formInputs[2].value}/${formInputs[3].value}`
   }
-  cardCvc.textContent = formInputs[4].value;
+  formInputs[4].value ? cardCvc.textContent = formInputs[4].value : [];
   let verifyCount = 0;
 
   for (let i = 0; i < formInputs.length; i++) {
